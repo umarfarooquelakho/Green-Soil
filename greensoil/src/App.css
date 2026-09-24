@@ -1,0 +1,11 @@
+/* App-level overrides — most styles are in index.css via Tailwind */
+
+/* Print styles for order invoices */
+@media print {
+  header, aside, nav, footer, .no-print {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+}
