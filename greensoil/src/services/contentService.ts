@@ -262,4 +262,30 @@ export const contentService = {
 
     if (error) throw new Error(error.message)
   },
+
+  // ── Service image upload ──────────────────────────────────────────────────
+  async uploadServiceImage(serviceId: string, file: File): Promise<string> {
+    const ext      = file.name.split('.').pop()
+    const fileName = `services/${serviceId}/${Date.now()}.${ext}`
+
+    const { error: uploadError } = await supabase.storage
+      .from('service-images')
+      .upload(fileName, file, { upsert: true })
+
+    if (uploadError) throw new Error(uploadError.message)
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('service-images')
+      .getPublicUrl(fileName)
+
+    return publicUrl
+  },
+
+  // Delete a service image from storage (best-effort)
+  async deleteServiceImage(imageUrl: string): Promise<void> {
+    // Extract the path after the bucket name
+    const match = imageUrl.match(/service-images\/(.+)$/)
+    if (!match) return
+    await supabase.storage.from('service-images').remove([match[1]])
+  },
 }

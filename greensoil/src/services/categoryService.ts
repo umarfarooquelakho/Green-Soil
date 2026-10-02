@@ -56,4 +56,28 @@ export const categoryService = {
 
     if (error) throw new Error(error.message)
   },
+
+  // ── Category image upload ─────────────────────────────────────────────────
+  async uploadCategoryImage(categoryId: string, file: File): Promise<string> {
+    const ext      = file.name.split('.').pop()
+    const fileName = `categories/${categoryId}/${Date.now()}.${ext}`
+
+    const { error: uploadError } = await supabase.storage
+      .from('product-images')
+      .upload(fileName, file, { upsert: true })
+
+    if (uploadError) throw new Error(uploadError.message)
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('product-images')
+      .getPublicUrl(fileName)
+
+    return publicUrl
+  },
+
+  async deleteCategoryImage(imageUrl: string): Promise<void> {
+    const match = imageUrl.match(/product-images\/(.+)$/)
+    if (!match) return
+    await supabase.storage.from('product-images').remove([match[1]])
+  },
 }

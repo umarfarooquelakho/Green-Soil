@@ -10,12 +10,12 @@ import {
   Settings,
   Package,
   LayoutDashboard,
-  Leaf,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
 import { useCart } from '@/contexts/CartContext'
 import { Button } from '@/components/ui/Button'
+import { Logo } from '@/components/shared/Logo'
 import toast from 'react-hot-toast'
 
 const navLinks = [
@@ -65,29 +65,12 @@ export function Header() {
         scrolled ? 'shadow-md' : 'shadow-sm border-b border-dark-100'
       )}
     >
-      {/* Top bar */}
-      <div className="bg-primary-800 text-white text-xs py-1.5 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="opacity-80">🌱 Pakistan's trusted fertilizer partner since 2020</span>
-          <div className="flex items-center gap-4 opacity-80">
-            <a href="tel:+923000000000" className="hover:opacity-100 transition-opacity">+92 300 000 0000</a>
-            <a href="mailto:info@greensoilagri.com" className="hover:opacity-100 transition-opacity">info@greensoilagri.com</a>
-          </div>
-        </div>
-      </div>
-
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 bg-primary-600 rounded-xl flex items-center justify-center shadow-sm">
-              <Leaf className="w-5 h-5 text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-primary-800 text-base leading-tight">GREEN SOIL</div>
-              <div className="text-xs text-dark-500 leading-tight">Agri Services</div>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            <Logo size="md" />
           </Link>
 
           {/* Desktop nav */}

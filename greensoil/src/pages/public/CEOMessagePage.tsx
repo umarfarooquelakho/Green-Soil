@@ -25,7 +25,7 @@ export default function CEOMessagePage() {
       <div className="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Breadcrumb items={[{ label: "CEO's Message" }]} className="mb-4 [&_*]:text-primary-200" />
-          <h1 className="text-3xl sm:text-5xl font-bold mb-2">Message from Our CEO</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-2 text-white">Message from Our CEO</h1>
           <p className="text-primary-200">Leadership vision and company direction</p>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function AboutPage() {
       <div className="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Breadcrumb items={[{ label: 'About Us' }]} className="mb-4 [&_*]:text-primary-200" />
-          <h1 className="text-3xl sm:text-5xl font-bold mb-4">About GREEN SOIL</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-4 text-white">About GREEN SOIL</h1>
           <p className="text-primary-200 text-lg max-w-2xl">
             Building a stronger agricultural future for Pakistan — one farm at a time.
           </p>
@@ -120,7 +120,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Committed to Quality & Sustainability
               </h2>
               <div className="space-y-4 text-primary-200">

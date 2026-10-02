@@ -5,11 +5,11 @@ import {
   TrendingUp,
   Package,
   Users,
-  Leaf,
   LogOut,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/shared/Logo'
 import toast from 'react-hot-toast'
 
 const navItems = [
@@ -34,14 +34,9 @@ export function ManagementLayout() {
     <div className="flex h-screen bg-dark-50 overflow-hidden">
       {/* Sidebar */}
       <aside className="w-60 bg-dark-900 flex flex-col shrink-0 hidden lg:flex">
-        <div className="flex items-center gap-2.5 p-5 border-b border-dark-800">
-          <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-            <Leaf className="w-4 h-4 text-white" />
-          </div>
-          <div>
-            <div className="font-bold text-white text-sm">GREEN SOIL</div>
-            <div className="text-xs text-dark-400">Management</div>
-          </div>
+        <div className="flex items-center gap-2.5 p-4 border-b border-dark-800">
+          <Logo size="sm" inverted />
+          <span className="text-xs text-dark-400 whitespace-nowrap border-l border-dark-700 pl-2.5 ml-0.5">Mgmt</span>
         </div>
 
         <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">

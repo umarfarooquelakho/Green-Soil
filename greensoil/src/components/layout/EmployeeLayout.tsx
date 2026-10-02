@@ -5,11 +5,11 @@ import {
   Package,
   Users,
   Bell,
-  Leaf,
   LogOut,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/shared/Logo'
 import toast from 'react-hot-toast'
 
 const navItems = [
@@ -35,11 +35,8 @@ export function EmployeeLayout() {
       {/* Header */}
       <header className="bg-primary-800 text-white px-4 sm:px-6 h-14 flex items-center justify-between sticky top-0 z-30">
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
-            <Leaf className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-bold text-sm">GREEN SOIL</span>
-          <span className="text-white/60 text-sm hidden sm:inline">/ Employee Portal</span>
+          <Logo size="sm" inverted />
+          <span className="text-white/50 text-sm hidden sm:inline">/ Employee Portal</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-sm text-white/80 hidden sm:block">

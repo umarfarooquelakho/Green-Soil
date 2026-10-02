@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Leaf, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
 import { useAuth } from '@/contexts/AuthContext'
+import { Logo } from '@/components/shared/Logo'
 import toast from 'react-hot-toast'
 
 const schema = z.object({ email: z.string().email('Enter a valid email') })
@@ -28,15 +29,9 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen bg-dark-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2.5 justify-center">
-            <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
-              <Leaf className="w-5 h-5 text-white" />
-            </div>
-            <div className="text-left">
-              <div className="font-bold text-primary-800 text-lg">GREEN SOIL</div>
-              <div className="text-xs text-dark-500">Agri Services</div>
-            </div>
+        <div className="flex justify-center mb-8">
+          <Link to="/">
+            <Logo size="xl" />
           </Link>
         </div>
 

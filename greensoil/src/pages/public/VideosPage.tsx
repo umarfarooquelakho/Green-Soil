@@ -31,7 +31,7 @@ export default function VideosPage() {
       <div className="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Breadcrumb items={[{ label: 'Product Videos' }]} className="mb-4 [&_*]:text-primary-200" />
-          <h1 className="text-3xl sm:text-5xl font-bold mb-2">Product Videos</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-2 text-white">Product Videos</h1>
           <p className="text-primary-200">
             Watch our product demonstrations, usage guides, and agricultural tips.
           </p>

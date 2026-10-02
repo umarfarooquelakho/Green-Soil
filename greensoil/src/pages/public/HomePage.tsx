@@ -22,6 +22,30 @@ import type { Product, ProductCategory } from '@/types/product.types'
 import type { Service, Video } from '@/services/contentService'
 import { getYouTubeThumbnail, getYouTubeEmbedUrl } from '@/lib/utils'
 
+// ── Category icons by slug ─────────────────────────────────────────────────
+const CATEGORY_ICONS: Record<string, string> = {
+  'fertilizers':       '🌿',
+  'pesticides':        '🛡️',
+  'seeds':             '🌱',
+  'soil-conditioners': '🪱',
+  'micronutrients':    '⚗️',
+  'equipment':         '🚜',
+  'organic':           '🍃',
+  'herbicides':        '🌾',
+  'fungicides':        '🍄',
+  'insecticides':      '🐛',
+}
+
+// ── Service icons by slug ──────────────────────────────────────────────────
+const SERVICE_ICONS: Record<string, string> = {
+  'soil-testing':            '🧪',
+  'crop-advisory':           '🌾',
+  'fertilizer-consultation': '💊',
+  'nationwide-delivery':     '🚚',
+  'training-programs':       '📚',
+  'after-sale-support':      '🎧',
+}
+
 const stats = [
   { label: 'Farmers Served', value: '5,000+', icon: Users },
   { label: 'Products Available', value: '50+', icon: Leaf },
@@ -126,8 +150,12 @@ export default function HomePage() {
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-primary-700/30 border border-primary-600/50 flex items-center justify-center">
                 <div className="w-60 h-60 rounded-full bg-primary-600/40 border border-primary-500/50 flex items-center justify-center">
-                  <div className="w-40 h-40 rounded-full bg-primary-500/50 flex items-center justify-center">
-                    <Leaf className="w-20 h-20 text-primary-200" />
+                  <div className="w-52 h-52 rounded-full bg-white/10 flex items-center justify-center p-4">
+                    <img
+                      src="/images/logo/Logo.jpg"
+                      alt="Green Soil Agri Services"
+                      className="w-full h-full object-contain drop-shadow-2xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -234,8 +262,8 @@ export default function HomePage() {
                       className="w-16 h-16 object-cover rounded-xl mx-auto mb-3"
                     />
                   ) : (
-                    <div className="w-16 h-16 rounded-xl bg-primary-200 flex items-center justify-center mx-auto mb-3">
-                      <Leaf className="w-8 h-8 text-primary-600" />
+                    <div className="w-16 h-16 rounded-xl bg-primary-200 flex items-center justify-center mx-auto mb-3 text-3xl">
+                      {CATEGORY_ICONS[cat.slug] ?? '🌱'}
                     </div>
                   )}
                   <h3 className="font-semibold text-dark-800 text-sm group-hover:text-primary-700 transition-colors">
@@ -279,8 +307,8 @@ export default function HomePage() {
                       className="w-12 h-12 rounded-xl object-cover mb-4"
                     />
                   ) : (
-                    <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
-                      <Leaf className="w-6 h-6 text-primary-600" />
+                    <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4 text-2xl">
+                      {SERVICE_ICONS[service.slug] ?? '🌱'}
                     </div>
                   )}
                   <h3 className="font-bold text-dark-900 mb-2">{service.title}</h3>
@@ -301,7 +329,7 @@ export default function HomePage() {
             <p className="text-primary-300 font-semibold text-sm uppercase tracking-widest mb-2">
               Our Promise
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold">Why Choose GREEN SOIL?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Why Choose GREEN SOIL?</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item) => (

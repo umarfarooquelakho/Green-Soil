@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import { Logo } from '@/components/shared/Logo'
 
 // Social icons as inline SVGs (lucide-react v1 removed Facebook/Twitter/Instagram/Youtube)
 function FacebookIcon() {
@@ -45,14 +46,8 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <div className="font-bold text-white text-lg leading-tight">GREEN SOIL</div>
-                <div className="text-xs text-dark-400 leading-tight">Agri Services (PVT) Ltd.</div>
-              </div>
+            <div className="mb-5">
+              <Logo size="lg" inverted />
             </div>
             <p className="text-dark-400 text-sm leading-relaxed mb-6">
               Pakistan's trusted partner for premium fertilizers and agricultural solutions.
