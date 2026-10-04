@@ -20,8 +20,8 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router-dom')) return 'vendor'
+        manualChunks: (id: string) => {
+          if (id.includes('node_modules/react') || id.includes('react-dom') || id.includes('react-router-dom')) return 'vendor'
           if (id.includes('@supabase')) return 'supabase'
           if (id.includes('recharts')) return 'charts'
         },

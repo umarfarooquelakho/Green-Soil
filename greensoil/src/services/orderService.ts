@@ -167,7 +167,7 @@ export const orderService = {
       .in('key', ['shipping_flat_rate', 'tax_rate'])
 
     const settingsMap = Object.fromEntries(
-      (settings ?? []).map((s) => [s.key, s.value])
+      (settings ?? []).map((s: { key: string; value: unknown }) => [s.key, s.value])
     )
 
     const shippingRate = Number(settingsMap['shipping_flat_rate'] ?? 0)
@@ -238,19 +238,20 @@ export const orderService = {
       .from('orders')
       .select('status, total_amount, created_at')
 
+    type OrderRow = { status: string; total_amount: number; created_at: string }
+    const rows: OrderRow[] = (data ?? []) as OrderRow[]
     const now = new Date()
     const thisMonth = now.toISOString().slice(0, 7)
 
     return {
-      total: data?.length ?? 0,
-      pending: data?.filter((o) => o.status === 'PENDING').length ?? 0,
-      delivered: data?.filter((o) => o.status === 'DELIVERED').length ?? 0,
-      cancelled: data?.filter((o) => o.status === 'CANCELLED').length ?? 0,
-      totalRevenue: data?.reduce((sum, o) => sum + (o.total_amount ?? 0), 0) ?? 0,
-      thisMonthRevenue:
-        data
-          ?.filter((o) => o.created_at?.startsWith(thisMonth))
-          .reduce((sum, o) => sum + (o.total_amount ?? 0), 0) ?? 0,
+      total: rows.length,
+      pending:   rows.filter((o) => o.status === 'PENDING').length,
+      delivered: rows.filter((o) => o.status === 'DELIVERED').length,
+      cancelled: rows.filter((o) => o.status === 'CANCELLED').length,
+      totalRevenue: rows.reduce((sum, o) => sum + (o.total_amount ?? 0), 0),
+      thisMonthRevenue: rows
+        .filter((o) => o.created_at?.startsWith(thisMonth))
+        .reduce((sum, o) => sum + (o.total_amount ?? 0), 0),
     }
   },
 }

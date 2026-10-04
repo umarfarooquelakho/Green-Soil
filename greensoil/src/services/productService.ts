@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabase'
-import type { Product, ProductCategory, ProductFilters, CreateProductInput } from '@/types/product.types'
+import type { Product, ProductFilters, CreateProductInput } from '@/types/product.types'
 import type { PaginatedResult } from '@/types/common.types'
 
 const PRODUCT_SELECT = `

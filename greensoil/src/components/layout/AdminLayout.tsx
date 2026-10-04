@@ -16,7 +16,6 @@ import {
   Layers,
   Wrench,
   Menu,
-  X,
   LogOut,
   ChevronDown,
   ExternalLink,

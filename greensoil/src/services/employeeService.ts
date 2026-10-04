@@ -173,11 +173,14 @@ export const employeeService = {
       .select('employment_status')
       .is('deleted_at', null)
 
+    type EmpRow = { employment_status: string }
+    const rows: EmpRow[] = (data ?? []) as EmpRow[]
+
     return {
-      total: data?.length ?? 0,
-      active: data?.filter((e) => e.employment_status === 'ACTIVE').length ?? 0,
-      onLeave: data?.filter((e) => e.employment_status === 'ON_LEAVE').length ?? 0,
-      inactive: data?.filter((e) => e.employment_status === 'INACTIVE').length ?? 0,
+      total:    rows.length,
+      active:   rows.filter((e) => e.employment_status === 'ACTIVE').length,
+      onLeave:  rows.filter((e) => e.employment_status === 'ON_LEAVE').length,
+      inactive: rows.filter((e) => e.employment_status === 'INACTIVE').length,
     }
   },
 }
